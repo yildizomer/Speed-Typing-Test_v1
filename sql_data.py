@@ -1,4 +1,4 @@
-# Sql datasında istenilmeyen verilen silinmesi
+# Apiden alınan verileri SQL veritabanına kaydetmeye yarayan kod.
 import requests
 import sqlite3
 
@@ -8,7 +8,7 @@ response = requests.get(api_url)
 data = response.text
 
 
-cleaned_data = ''.join(e for e in data if e.isalnum() or e.isspace())  # Sadece harf, rakam ve boşlukları tut
+cleaned_data = ''.join(e for e in data if e.isalnum() or e.isspace())
 
 
 conn = sqlite3.connect('kelimeler.db')
